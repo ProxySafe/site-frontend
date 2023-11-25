@@ -1,0 +1,164 @@
+html {
+    // overflow-x: hidden;
+    overflow: auto;
+}
+
+pre {
+    overflow: auto;
+}
+
+@font-face{
+    font-family: 'JetBrainsMono';
+    src: url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2') format('woff2'),
+      url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Regular.woff') format('woff'),
+      url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/ttf/JetBrainsMono-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.tarifs-home {
+    height: 100vh;
+    background-color: rgb(194, 187, 187);
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    position: relative;
+    .tarifs-home-image {
+        width: 100%;
+        height: 30%;
+        background-image: url("../../img/1624453259_30-phonoteka_org-p-khakerskie-oboi-na-telefon-krasivo-36.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        .header {
+            width: 100%;
+            height: 20%;
+            align-self: left;
+            display: flex;
+            flex-direction: row;
+            .icon-container {
+                a {
+                    .icon-container img {
+                        height: 20%;
+                        width: 20%;
+                    }
+                }
+            }
+            .nav-container {
+                width: 80%;
+                display: flex;
+                flex-direction: column;
+                .top-nav-container {
+                    .personal-account {
+                        display: flex;
+                        flex-direction: row;
+                        text-align: center;
+                        .personal-account-img {
+                            margin-top: 6px;
+                            margin-left: 70%;
+                            width: 2%;
+                            height: 2%;
+                        }
+
+                        a {
+                            margin-top: 7px;
+                            margin-left: 5px;
+                            text-decoration: none;
+                            color: rgb(232, 225, 225);
+                            font-size: 15px;
+                            font-family: 'JetBrainsMono';
+                        }
+
+                        a:hover {
+                            color: rgb(236, 36, 36);
+                        }
+
+                        .add-personal-account-img {
+                            margin-top: 6px;
+                            margin-left: 2%;
+                            width: 2%;
+                            height: 2%;
+                        }
+                    }
+                }
+
+                .main-nav-container {
+                    display: flex;
+                    flex-direction: row;
+                    margin-left: 5%;
+                    list-style: none;
+
+                    .nav-item {
+                        a {
+                            text-decoration: none;
+                            .menu-icon {
+                                font-family: 'JetBrainsMono';
+                                color: rgb(232, 225, 225);
+                                padding: 10px;
+                            }
+                        }
+
+                        .menu-icon:hover {
+                            background-color: rgb(236, 36, 36);
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .header-name {
+        align-self: center;
+        color: rgb(41, 40, 40);
+        font-size: 70px;
+    }
+
+    .tarifs-container {
+        margin-top: 2%;
+        width: 80%;
+        align-self: center;
+        height: 55%;
+        display: flex;
+        flex-direction: row;
+        padding: 10px;
+        .tarif-item {
+            margin-left: 2%;
+            padding: 5px;
+            width: 55%;
+            height: 90%;
+            align-self: center;
+            background-color: rgb(90, 87, 87);
+            font-family: 'JetBrainsMono';
+            display: flex;
+            flex-direction: column;
+
+            .tarif-headline {
+                margin-top: 0%;
+                font-family: inherit;
+                align-self: center;
+                font-size: 30px;
+                color: rgb(11, 10, 10);
+            }
+
+            .buy-tarif {
+                font-family: 'JetBrainsMono';
+                background-color: rgb(194, 187, 187);
+                color: rgb(20, 20, 20);
+                width: 30%;
+                height: 80px;
+                margin-top: 100%;
+                margin-left: 35%;
+                font-weight: bold;
+                border-radius: 10px;
+            }
+
+            .buy-tarif:hover {
+                font-family: 'JetBrainsMono';
+                background-color: rgb(20, 20, 20);
+                color: rgb(194, 187, 187);
+                font-weight: bold;
+            }
+        }
+    }
+}
