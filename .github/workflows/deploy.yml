@@ -26,4 +26,4 @@ jobs:
       - run: npm ci
       - run: npm run build
       # Deploy
-      - run: cd build && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . root@83.220.174.247:/var/www/www-root/data/www/proxysafe.ru/html/
+      - run: cd build && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . root@proxysafe.ru:/var/www/www-root/data/www/proxysafe.ru/html/
