@@ -25,6 +25,6 @@ jobs:
       - run: npm ci
       - run: npm run build
       # Download sshpass
-      - run: apt install sshpass
+      - run: sudo apt install -y sshpass
       # Deploy
       - run: sshpass -p "${{ secrets.password }}" scp -r ./build/* root@83.220.174.247:/var/www/www-root/data/www/proxysafe.ru/html
