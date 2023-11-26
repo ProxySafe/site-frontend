@@ -19,11 +19,12 @@ jobs:
       # Setup key
       - run: set -eu
       - run: mkdir "$HOME/.ssh"
-      - run: echo "${{ secrets.key }}"
       - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
       - run: chmod 600 "$HOME/.ssh/key"
       # Build
       - run: npm ci
       - run: npm run build
+      # Download sshpass
+      - run: apt install sshpass
       # Deploy
-      - run: cd build && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . root@proxysafe.ru:/var/www/www-root/data/www/proxysafe.ru/html/
+      - run: sshpass -p "${{ secrets.password }}" scp -r ./build/* root@83.220.174.247:/var/www/www-root/data/www/proxysafe.ru/html
