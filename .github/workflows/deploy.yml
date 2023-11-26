@@ -19,11 +19,10 @@ jobs:
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
       # Setup key
-      - run: |
-          mkdir -p "$HOME/.ssh"
-          ssh-keyscan github.com >> $HOME/.ssh/known_hosts
-          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-          ssh-add - <<< "${{ secrets.SSH_KEY_FROM_SERVER }}"
+      - run: mkdir -p "$HOME/.ssh"
+      - run: ssh-keyscan github.com >> $HOME/.ssh/known_hosts
+      - run: ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+      - run: ssh-add - <<< "${{ secrets.SSH_KEY_FROM_SERVER }}"
       - run: set -eu
       - run: echo "${{ secrets.SSH_KEY_FROM_SERVER }}" > "$HOME/.ssh/key"
       - run: chmod 600 "$HOME/.ssh/key"
