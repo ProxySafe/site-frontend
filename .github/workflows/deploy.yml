@@ -1,36 +1,14 @@
-name: Deploy
-
-on:
-  push:
-    branches:
-      - master
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
-    steps:
-      - name: Preparations
-      - uses: actions/checkout@v2
+- uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: echo LLL
-      - name: Install SSH Key
-      - uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_KEY_FROM_SERVER }}
-          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
       # Setup key
-      - name: Adding Known Hosts
-      - run: ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
-      # - run: set -eu
-      # - run: echo "${{ secrets.SSH_KEY_FROM_SERVER }}" > "$HOME/.ssh/key"
-      # - run: chmod 600 "$HOME/.ssh/key"
+      - run: set -eu
+      - run: mkdir "$HOME/.ssh"
+      - run: echo "${{ secrets.SSH_KEY_FROM_SERVER }}" > "$HOME/.ssh/key"
+      - run: chmod 600 "$HOME/.ssh/key"
       # Build
-      - name: Build && Deploy
       - run: npm ci
       - run: npm run build
-      - run: rsync --archive --compress --delete ./build/ root@${{ secrets.SERVER_HOST }}:/var/www/www-root/data/www/proxysafe.ru/html/
+      # Deploy
+      - run: cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . pepelsbey@pepelsbey.dev:/var/www/pepelsbey.dev/html/
