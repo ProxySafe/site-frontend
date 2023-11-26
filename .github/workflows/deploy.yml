@@ -32,6 +32,6 @@ jobs:
           username: "root"
           server: "83.220.174.247"
           port: "22"
-          ssh_private_key: ${{ secrets.SSH_KEY_FROM_SERVER }}
+          ssh_private_key: ${{ secrets.ED_25519_PK }}
           local_path: "./build/*"
           target_path: "/var/www/www-root/data/www/proxysafe.ru/html"
