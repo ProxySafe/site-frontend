@@ -31,5 +31,5 @@ jobs:
 
       - name: Deploy
         env:
-          PASSWORD: ${{ secrets.PASSWORD }}
-        run: sshpass -p '$PASSWORD' scp ./build/* root@83.220.174.247:/var/www/www-root/data/www/proxysafe.ru/html/
+          PASSWORD: '${{ secrets.PASSWORD }}'
+        run: sshpass -p $PASSWORD scp ./build/* root@83.220.174.247:/var/www/www-root/data/www/proxysafe.ru/html/
