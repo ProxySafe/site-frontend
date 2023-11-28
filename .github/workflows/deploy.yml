@@ -26,12 +26,10 @@ jobs:
       - name: Build
         run: npm run build
       
+      - name: Install sshpass
+        run: sudo apt install sshpass
+
       - name: Deploy
-        uses: zhenyuWang/Upload-File-Action@v1.0.1
-        with:
-          username: "root"
-          server: "83.220.174.247"
-          port: "22"
-          ssh_private_key: ${{ secrets.ED_25519_PK }}
-          local_path: "./build/*"
-          target_path: "/var/www/www-root/data/www/proxysafe.ru/html"
+        env:
+          PASSWORD: ${{ secrets.PASSWORD }}
+        run: sshpass -p '$PASSWORD' scp ./build/* root@83.220.174.247:/var/www/www-root/data/www/proxysafe.ru/html/
