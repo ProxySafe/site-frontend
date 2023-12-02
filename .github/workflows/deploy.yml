@@ -25,6 +25,10 @@ jobs:
       
       - name: Build
         run: npm run build
+
+      - name: Test
+        run: |
+          npm ci
       
       - name: Install sshpass
         run: sudo apt install sshpass
