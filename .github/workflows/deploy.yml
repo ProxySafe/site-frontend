@@ -45,8 +45,8 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             ${{ github.actor }} successfully pushed commit:
-            Commit message: ${{ github.event.commits[0].message }}
+            Commit message: ${{ github.event.workflow_run.head_commit.message }}
             
             Repository: ${{ github.repository }}
             
-            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            See changes: https://github.com/${{ github.repository }}/commit/${{ github.event.pull_request.head.sha }}
