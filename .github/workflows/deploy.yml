@@ -49,4 +49,4 @@ jobs:
             
             Repository: ${{ github.repository }}
             
-            See changes: https://github.com/${{ github.repository }}/commit/${{ github.event.head_commit.sha }}
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
