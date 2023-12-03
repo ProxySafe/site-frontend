@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Home.scss";
+import React from "react";
 
 const Home = () => {
     const [toggle, setToggle] = useState(1);
@@ -10,70 +11,82 @@ const Home = () => {
 
     return (
         <div className="home">
-            <div className="home-image">
-                <div className="header">
-                    <div className="icon-container">
-                        <a class="logo" href="/">
-                            <img src={require('../../img/Frame 9.png')} alt=""></img>
-                        </a>
-                    </div>
-                    <div className="nav-container">
-                        <div className="top-nav-container">
-                            <div className="personal-account">
-                                <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
-                                <a href="/login" className="personal-account-link">Личный кабинет</a>
-                                <img src={require('../../img/add_account.png')} className="add-personal-account-img" alt=""></img>
-                                <a href="/register" className="add-personal-account-link">Зарегистрироваться</a>
-                            </div>
+            <div className="home-up">
+                <div className="home-image">
+                    <div className="header">
+                        <div className="icon-container">
+                            <a class="logo" href="/">
+                                <img src={require('../../img/Frame 9.png')} class="logo" alt=""></img>
+                            </a>
                         </div>
+                        <div className="nav-container">
+                            <div className="top-nav-container">
+                                <div className="personal-account">
+                                    <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
+                                    <a href="/login" className="personal-account-link">Личный кабинет</a>
+                                    <img src={require('../../img/add_account.png')} className="add-personal-account-img" alt=""></img>
+                                    <a href="/register" className="add-personal-account-link">Зарегистрироваться</a>
+                                </div>
+                            </div>
 
-                        <ul className="main-nav-container">
-                            <li className="nav-item">
-                                <a href="/">
-                                <span className="menu-icon">
-                                    Главная
-                                </span>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="/tarifs">
-                                <span className="menu-icon">
-                                    Тарифы
-                                </span>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="/about">
-                                <span className="menu-icon">
-                                    О нас
-                                </span>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="/faq">
-                                <span className="menu-icon">
-                                    FAQ
-                                </span>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="/contacts">
-                                <span className="menu-icon">
-                                    Контакты
-                                </span>
-                                </a>
-                            </li>
-                        </ul>
+                            <ul className="main-nav-container">
+                                <li className="nav-item">
+                                    <a href="/">
+                                    <span className="menu-icon">
+                                        Главная
+                                    </span>
+                                    </a>
+                                </li>
+                                <li className="nav-item">
+                                    <a href="/tarifs">
+                                    <span className="menu-icon">
+                                        Тарифы
+                                    </span>
+                                    </a>
+                                </li>
+                                <li className="nav-item">
+                                    <a href="/about">
+                                    <span className="menu-icon">
+                                        О нас
+                                    </span>
+                                    </a>
+                                </li>
+                                <li className="nav-item">
+                                    <a href="/faq">
+                                    <span className="menu-icon">
+                                        FAQ
+                                    </span>
+                                    </a>
+                                </li>
+                                <li className="nav-item">
+                                    <a href="/contacts">
+                                    <span className="menu-icon">
+                                        Контакты
+                                    </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
 
-                <div className="slogan">
-                    <a href="/tarifs" className="slogan-text">Будь анонимным</a>
+                    <div className="slogan">
+                        <a href="/tarifs" className="slogan-text">Будь анонимным</a>
+                    </div>
                 </div>
             </div>
 
             <div className="options">
                 <div className="carousel">
+                    <div className="inner-carousel">
+                        <img src={require("../../img/Frame 12.png")} alt=""></img>
+                        <img src={require("../../img/Frame 13.png")} alt=""></img>
+                        <img src={require("../../img/Frame 16.png")} alt=""></img>
+                        <img src={require("../../img/Frame 17.png")} alt=""></img>
+                        <img src={require("../../img/Frame 18.png")} alt=""></img>
+                        <img src={require("../../img/Frame 19.png")} alt=""></img>
+                        <img src={require("../../img/Frame 20.png")} alt=""></img>
+                        <img src={require("../../img/Frame 21.png")} alt=""></img>
+                    </div>
                     <div className="inner-carousel">
                         <img src={require("../../img/Frame 12.png")} alt=""></img>
                         <img src={require("../../img/Frame 13.png")} alt=""></img>
@@ -356,21 +369,21 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="footer">
-                <div className="links">
+            {/* <footer>
+                <div className="link-container">
                     <a href="https://t.me/dvinyatinfedor" className="tgLink">
-                        <div className="icon"></div>
+                        <img className="icon"></img>
                     </a>
 
                     <a href="mailto:rkuzin.2003@gmail.com" className="emailLink">
-                        <div className="icon"></div>
+                        <img className="icon"></img>
                     </a>
 
                     <a href="https://vk.com/dvinyatinfedor" className="vkLink">
-                        <div className="icon"></div>
+                        <img className="icon"></img>
                     </a>
                 </div>
-            </div>
+            </footer> */}
         </div>
     );
 }
