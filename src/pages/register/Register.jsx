@@ -12,11 +12,11 @@ const Register = () => {
             <div className="register-form">
                 <h1>Регистрация</h1>
                 <form>
-                    <input type="text" placeholder="Никнейм"></input>
-                    <input type="text" placeholder="Имя"></input>
-                    <input type="text" placeholder="Фамилия"></input>
-                    <input type="password" placeholder="Пароль"></input>
-                    <input type="password" placeholder="Пароль еще раз"></input>
+                    <input type="text" placeholder="Никнейм" className="nickNameInput"></input>
+                    <input type="text" placeholder="Имя" className="nameInput"></input>
+                    <input type="text" placeholder="Фамилия" className="nameInput"></input>
+                    <input type="password" placeholder="Пароль" className="passwordInput"></input>
+                    <input type="password" placeholder="Пароль еще раз" className="passwordInput"></input>
                     <button>Зарегистрироваться</button>
                 </form>
                 <a href="/login">Есть аккаунт? Войдите!</a>

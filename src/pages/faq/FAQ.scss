@@ -1,0 +1,192 @@
+.faq-home {
+    height: 150vh;
+    background-color: rgb(194, 187, 187);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    
+    .faq-home-up {
+        width: 100%;
+        align-self: center;
+        align-content: center;
+        background-color: black;
+        .faq-home-image {
+            width: 100%;
+            background-image: url("../../img/1624453259_30-phonoteka_org-p-khakerskie-oboi-na-telefon-krasivo-36.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            min-width: 1500px;
+            max-width: 1575px;
+            min-height: 500px;
+            justify-self: center;
+            align-self: center;
+            align-content: center;
+            margin: auto;
+
+            .header {
+                margin-top: 5px;
+                width: 100%;
+                height: 30%;
+                min-width: 100px;
+                min-height: 50px;
+                align-self: center;
+                justify-self: center;
+                display: inline-flex;
+                flex-direction: row;
+                .icon-container {
+                    padding: 0px;
+                    margin-top: 5px;
+                    a {
+                        .icon-container img {
+                            height: 20%;
+                            width: 20%;
+                        }
+                    }
+
+                    a:hover {
+                        .logo {
+                            content: url('../../img/Frame_9_hover.png');
+                        }
+                    }
+                }
+
+                .nav-container {
+                    width: 80%;
+                    display: flex;
+                    flex-direction: column;
+                    .top-nav-container {
+                        .personal-account {
+                            display: flex;
+                            flex-direction: row;
+                            text-align: center;
+                            .personal-account-img {
+                                margin-top: 6px;
+                                margin-left: 70%;
+                                width: 2%;
+                                height: 2%;
+                            }
+
+                            a {
+                                margin-top: 0.7%;
+                                margin-left: 0.5%;
+                                text-decoration: none;
+                                color: rgb(232, 225, 225);
+                                font-size: 15px;
+                                font-family: 'JetBrainsMono';
+                            }
+
+                            a:hover {
+                                color: rgb(236, 36, 36);
+                            }
+
+                            .add-personal-account-img {
+                                margin-top: 6px;
+                                margin-left: 2%;
+                                width: 2%;
+                                height: 2%;
+                            }
+                        }
+                    }
+
+                    .main-nav-container {
+                        display: flex;
+                        flex-direction: row;
+                        margin-left: 5%;
+                        list-style: none;
+                        margin-top: 0%;
+
+                        .nav-item {
+                            a {
+                                text-decoration: none;
+                                .menu-icon {
+                                    border-radius: 10px;
+                                    font-family: 'JetBrainsMono';
+                                    color: rgb(232, 225, 225);
+                                    padding: 10px;
+                                }
+                            }
+
+                            .menu-icon:hover {
+                                background-color: rgb(236, 36, 36);
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .section-name {
+                margin-top: 3%;
+                height: 20%;
+                min-width: 1500px;
+                align-self: center;
+                align-content: center;
+
+                .name-text {
+                    display: flex;
+                    flex-direction: column;
+                    font-size: 900%;
+                    color: rgb(232, 225, 225);
+                    text-align: center;
+                    font-family:'JetBrainsMono';
+                    font-style: normal;
+                    font-weight: bold;
+                    text-decoration: none;
+                }
+
+                .name-text:hover {
+                    color: rgb(236, 36, 36);
+                }
+            }
+        }
+    }
+
+    .faq-container {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-self: center;
+        width: 100%;
+
+        .questions-answers {
+            width: 100%;
+            margin-top: 5%;
+            align-content: center;
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            max-width: 1600px;
+    
+            .faq-title:hover {
+                color: rgb(236, 36, 36);
+            }
+    
+            .faq-text-container {
+                align-self: center;
+                margin-top: 1%;
+                background-color: rgb(190, 190, 190);
+                box-shadow: 1px 1px 10px 1px grey;
+                border-radius: 10px;
+                max-width: 70%;
+    
+                .text p {
+                    .fat-text {
+                        font-weight: bold;
+                    }
+
+                    padding: 10px;
+                    font-size: 18px;
+                    font-family: 'JetBrainsMono';
+                }
+
+                .text .not-first-question {
+                    margin-top: 3%;
+                }
+            }
+    
+            .faq-text-container:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+            }
+        }
+    }
+}
