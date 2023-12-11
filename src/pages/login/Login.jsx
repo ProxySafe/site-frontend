@@ -12,8 +12,8 @@ const Login = () => {
             <div className="login-form">
                 <h1>Авторизация</h1>
                 <form>
-                    <input type="text" placeholder="Никнейм"></input>
-                    <input type="password" placeholder="Пароль"></input>
+                    <input type="text" placeholder="Никнейм" className="nickNameInput"></input>
+                    <input type="password" placeholder="Пароль" className="passwordInput"></input>
                     <button>Войти</button>
                 </form>
                 <a href="/register">Нет аккаунта? Зарегистрируйтесь!</a>

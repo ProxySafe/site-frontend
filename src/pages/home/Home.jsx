@@ -45,9 +45,9 @@ const Home = () => {
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/about">
+                                    <a href="/contacts">
                                     <span className="menu-icon">
-                                        О нас
+                                        Контакты
                                     </span>
                                     </a>
                                 </li>
@@ -55,13 +55,6 @@ const Home = () => {
                                     <a href="/faq">
                                     <span className="menu-icon">
                                         FAQ
-                                    </span>
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a href="/contacts">
-                                    <span className="menu-icon">
-                                        Контакты
                                     </span>
                                     </a>
                                 </li>
@@ -350,7 +343,7 @@ const Home = () => {
             </div>
             
             <div className="description">
-                <a className="description-title" href="/about">
+                <a className="description-title" href="/contacts">
                     Кто мы?
                 </a>
 
