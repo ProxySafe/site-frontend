@@ -6,8 +6,7 @@ background-repeat: no-repeat;
 background-size: cover;
 display: flex;
 flex-direction: column;
-    .icon-container {
-        // padding: 5px;
+    .icon-container {        
         margin-left: 10px;
         margin-top: 10px;
         a {
@@ -69,7 +68,7 @@ flex-direction: column;
         button{
             width: 40%;
             padding: 10px 20px;
-            border: none;
+            border: 2px solid rgb(236, 36, 36);;
             background-color: rgb(236, 36, 36);
             color: #ffffff;
             font-weight: bold;
@@ -80,6 +79,12 @@ flex-direction: column;
             cursor: pointer;
             border-radius: 10px;
         }
+
+        button:hover {
+            color: black;
+            background-color: rgb(194, 187, 187);
+        }
+
         a{
             margin-top: 20px;
             font-size: 15px;

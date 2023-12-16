@@ -6,10 +6,10 @@
     background-size: cover;
     display: flex;
     flex-direction: column;
-    padding: 5px;
+    // padding: 5px;
     .icon-container {
-        margin-top: 5px;
-        margin-left: 5px;
+        margin-top: 10px;
+        margin-left: 10px;
         a {
             .icon-container img {
                 height: 20%;
@@ -26,7 +26,7 @@
     
     
     .register-form{
-        width: 50%;
+        width: 35%;
         height: 50%;
         margin-top: 100px;
         margin-left: 50px;
@@ -43,8 +43,8 @@
         }
 
         form{
-            height: 65%;
-            width: 80%;
+            height: 70%;
+            width: 110%;
             margin-top: 10px;
             display: flex;
             flex-direction: column;
