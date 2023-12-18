@@ -1,6 +1,9 @@
+import { useAuth } from "../auth/Auth";
 import "./Contacts.scss";
 
 const Contacts = () => {
+    const auth = useAuth();
+
     return (
         <div className="contacts-home">
             <div className="contacts-home-up">

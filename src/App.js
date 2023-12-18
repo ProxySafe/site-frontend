@@ -1,23 +1,26 @@
-import Login from "./pages/login/Login";
-import Register from "./pages/register/Register";
-import Home from "./pages/home/Home";
-import Tarifs from "./pages/tarifs/Tarifs";
-import Contacts from "./pages/contacts/Contacts";
-import FAQ from "./pages/faq/FAQ";
+import Login from "./components/login/Login";
+import Register from "./components/register/Register";
+import Home from "./components/home/Home";
+import Tarifs from "./components/tarifs/Tarifs";
+import Contacts from "./components/contacts/Contacts";
+import FAQ from "./components/faq/FAQ";
 import { Route, Routes } from 'react-router-dom';
+import { AuthProvider } from "./components/auth/Auth";
+import { FpjsProvider } from '@fingerprintjs/fingerprintjs-pro-react';
+
 
 function App() {
   return (
-    <div>
-      <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login/>} />
-      <Route path="/register" element={<Register/>} />
-      <Route path="/tarifs" element={<Tarifs/>} />
-      <Route path="/contacts" element={<Contacts/>} />
-      <Route path="/faq" element={<FAQ/>} />
-      </Routes>
-    </div>
+    <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/tarifs" element={<Tarifs/>} />
+          <Route path="/contacts" element={<Contacts/>} />
+          <Route path="/faq" element={<FAQ/>} />
+        </Routes>
+    </AuthProvider>
   );
 }
 

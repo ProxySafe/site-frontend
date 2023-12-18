@@ -98,6 +98,33 @@
                         }
                     }
 
+                    .account-name {
+                        .account-info {
+                            display: flex;
+                            flex-direction: row;
+                            text-align: center;
+                            .personal-account-img {
+                                margin-top: 6px;
+                                margin-left: 80%;
+                                width: 2%;
+                                height: 2%;
+                            }
+
+                            a {
+                                margin-top: 0.7%;
+                                margin-left: 0.5%;
+                                text-decoration: none;
+                                color: rgb(232, 225, 225);
+                                font-size: 15px;
+                                font-family: 'JetBrainsMono';
+                            }
+
+                            a:hover {
+                                color: rgb(236, 36, 36);
+                            }
+                        }
+                    }
+
                     .main-nav-container {
                         display: flex;
                         flex-direction: row;

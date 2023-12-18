@@ -1,6 +1,9 @@
+import { useAuth } from "../auth/Auth";
 import "./FAQ.scss";
 
 const FAQ = () => {
+    const auth = useAuth();
+
     return (
         <div className="faq-home">
             <div className="faq-home-up">

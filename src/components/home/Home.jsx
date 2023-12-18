@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Home.scss";
 import React from "react";
+import { useAuth } from "../auth/Auth";
 
 const Home = () => {
     const [toggle, setToggle] = useState(1);
@@ -9,25 +10,37 @@ const Home = () => {
         setToggle(id);
     }
 
+    const auth = useAuth();
+
     return (
         <div className="home">
             <div className="home-up">
                 <div className="home-image">
                     <div className="header">
                         <div className="icon-container">
-                            <a class="logo" href="/">
+                            <a className="logo" href="/">
                                 <img src={require('../../img/Frame 9.png')} class="logo" alt=""></img>
                             </a>
                         </div>
                         <div className="nav-container">
-                            <div className="top-nav-container">
-                                <div className="personal-account">
-                                    <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
-                                    <a href="/login" className="personal-account-link">Личный кабинет</a>
-                                    <img src={require('../../img/add_account.png')} className="add-personal-account-img" alt=""></img>
-                                    <a href="/register" className="add-personal-account-link">Зарегистрироваться</a>
+                            {
+                            !auth.user ? (
+                                <div className="top-nav-container">
+                                    <div className="personal-account">
+                                        <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
+                                        <a href="/login" className="personal-account-link">Личный кабинет</a>
+                                        <img src={require('../../img/add_account.png')} className="add-personal-account-img" alt=""></img>
+                                        <a href="/register" className="add-personal-account-link">Зарегистрироваться</a>
+                                    </div>
                                 </div>
-                            </div>
+                            ) : (
+                                <div className="account-name">
+                                    <div className="account-info">
+                                        <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
+                                        <a href="/login" className="personal-account-link">{auth.user}</a>
+                                    </div>
+                                </div>
+                            )}
 
                             <ul className="main-nav-container">
                                 <li className="nav-item">

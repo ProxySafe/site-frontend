@@ -1,6 +1,10 @@
 import "./Tarifs.scss";
+import {useAuth} from "../auth/Auth";
 
 const Tarifs = () => {
+    const auth = useAuth();
+    console.log('auth.user ' + auth.user);
+
     return (
         <div className="tarifs-home">
             <div className="tarifs-home-up">
@@ -12,6 +16,8 @@ const Tarifs = () => {
                             </a>
                         </div>
                         <div className="nav-container">
+                            {
+                            !auth.user ? (
                             <div className="top-nav-container">
                                 <div className="personal-account">
                                     <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
@@ -20,6 +26,15 @@ const Tarifs = () => {
                                     <a href="/register" className="add-personal-account-link">Зарегистрироваться</a>
                                 </div>
                             </div>
+                            ) : 
+                            (
+                                <div className="account-name">
+                                    <div className="account-info">
+                                        <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
+                                        <a href="/login" className="personal-account-link">{auth.user}</a>
+                                    </div>
+                                </div>
+                            )}
 
                             <ul className="main-nav-container">
                                 <li className="nav-item">
