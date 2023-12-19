@@ -6,7 +6,6 @@
     background-size: cover;
     display: flex;
     flex-direction: column;
-    // padding: 5px;
     .icon-container {
         margin-top: 10px;
         margin-left: 10px;
@@ -50,7 +49,7 @@
             flex-direction: column;
             align-content: center;
 
-            .nickNameInput {
+            input {
                 align-self: center;
                 width: 60%;
                 text-indent: 10px;
@@ -59,34 +58,12 @@
                 border-radius: 10px;
                 font-size: 15px;
                 font-family: 'JetBrainsMono';
-            }
-            .nameInput{
-                align-self: center;
-                width: 60%;
-                height: 12%;
-                text-indent: 10px;
-                border-radius: 10px;
-                text-align: left;
                 margin-top: 10px;
-                font-size: 15px;
-                font-family: 'JetBrainsMono';
-            }
-
-            .passwordInput{
-                align-self: center;
-                width: 60%;
-                height: 12%;
-                text-indent: 10px;
-                border-radius: 10px;
-                text-align: left;
-                margin-top: 10px;
-                font-size: 15px;
-                font-family: 'JetBrainsMono';
             }
         }
 
         button {
-            height: 12%;
+            height: 14%;
             width: 50%;
             border: 2px solid rgb(236, 36, 36);
             background-color: rgb(236, 36, 36);
@@ -106,7 +83,7 @@
         }
 
         a {
-            margin-top: 20px;
+            margin-top: 0px;
             font-size: 15px;
             font-family: 'JetBrainsMono';
             color: rgb(236, 36, 36);
