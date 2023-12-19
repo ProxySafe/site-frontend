@@ -21,7 +21,7 @@ export const Login = () => {
             'user_agent': fingerprint.UserAgent
         }
 
-        axios.post('/auth/login/', JSON.stringify(reqBody))
+        axios.post('https://api.proxysafe.ru/auth/login/', JSON.stringify(reqBody))
             .then(function(response) {
                 const jsonData = response.data;
                 if (jsonData.statusCode == 200) {

@@ -32,7 +32,7 @@ const Register = () => {
         };
 
         console.log('sending request...');
-        axios.post('/auth/register/', JSON.stringify(reqBody))
+        axios.post('https://api.proxysafe.ru/auth/register/', JSON.stringify(reqBody))
         .then(response => {
             console.log(response.json());
         })
