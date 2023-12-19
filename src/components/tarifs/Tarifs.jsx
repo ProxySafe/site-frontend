@@ -1,7 +1,18 @@
 import "./Tarifs.scss";
+import { useState, useRef } from "react";
+import { useClickOutside } from "../click/useClickOutside";
 import {useAuth} from "../auth/Auth";
+import DropdownMenu from "../dropdown_menu/DropdownMenu";
+import "../dropdown_menu/DropdownMenu.scss";
 
 const Tarifs = () => {
+    const [isMenuOpen, setMenuOpen] = useState(false);
+    const menuRef = useRef(null);
+    useClickOutside(menuRef, () => {
+        if (isMenuOpen) setTimeout(() => setMenuOpen(false), 1);
+    });
+
+
     const auth = useAuth();
     console.log('auth.user ' + auth.user);
 
@@ -16,56 +27,39 @@ const Tarifs = () => {
                             </a>
                         </div>
                         <div className="nav-container">
-                            {
-                            !auth.user ? (
-                            <div className="top-nav-container">
-                                <div className="personal-account">
-                                    <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
-                                    <a href="/login" className="personal-account-link">Личный кабинет</a>
-                                    <img src={require('../../img/add_account.png')} className="add-personal-account-img" alt=""></img>
-                                    <a href="/register" className="add-personal-account-link">Зарегистрироваться</a>
-                                </div>
-                            </div>
-                            ) : 
-                            (
-                                <div className="account-name">
-                                    <div className="account-info">
-                                        <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
-                                        <a href="/login" className="personal-account-link">{auth.user}</a>
-                                    </div>
-                                </div>
-                            )}
-
-                            <ul className="main-nav-container">
-                                <li className="nav-item">
-                                    <a href="/">
-                                    <span className="menu-icon">
-                                        Главная
-                                    </span>
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a href="/tarifs">
-                                    <span className="menu-icon">
-                                        Тарифы
-                                    </span>
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a href="/contacts">
-                                    <span className="menu-icon">
-                                        Контакты
-                                    </span>
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a href="/faq">
-                                    <span className="menu-icon">
-                                        FAQ
-                                    </span>
-                                    </a>
-                                </li>
-                            </ul>
+                        
+                        <DropdownMenu />
+                        
+                        <ul className="main-nav-container">
+                            <li className="nav-item">
+                                <a href="/">
+                                <span className="menu-icon">
+                                    Главная
+                                </span>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="/tarifs">
+                                <span className="menu-icon">
+                                    Тарифы
+                                </span>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="/contacts">
+                                <span className="menu-icon">
+                                    Контакты
+                                </span>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="/faq">
+                                <span className="menu-icon">
+                                    FAQ
+                                </span>
+                                </a>
+                            </li>
+                        </ul>
                         </div>
                     </div>
 

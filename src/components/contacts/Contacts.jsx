@@ -1,7 +1,16 @@
 import { useAuth } from "../auth/Auth";
+import { useState, useRef } from "react";
+import { useClickOutside } from "../click/useClickOutside";
 import "./Contacts.scss";
+import DropdownMenu from "../dropdown_menu/DropdownMenu";
+import "../dropdown_menu/DropdownMenu.scss";
 
 const Contacts = () => {
+    const [isMenuOpen, setMenuOpen] = useState(false);
+    const menuRef = useRef(null);
+    useClickOutside(menuRef, () => {
+        if (isMenuOpen) setTimeout(() => setMenuOpen(false), 1);
+    });
     const auth = useAuth();
 
     return (
@@ -15,25 +24,7 @@ const Contacts = () => {
                             </a>
                         </div>
                         <div className="nav-container">
-                            {
-                            !auth.user ? (
-                                <div className="top-nav-container">
-                                    <div className="personal-account">
-                                        <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
-                                        <a href="/login" className="personal-account-link">Личный кабинет</a>
-                                        <img src={require('../../img/add_account.png')} className="add-personal-account-img" alt=""></img>
-                                        <a href="/register" className="add-personal-account-link">Зарегистрироваться</a>
-                                    </div>
-                                </div>
-                            ) : (
-                                <div className="account-name">
-                                    <div className="account-info">
-                                        <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
-                                        <a href="/login" className="personal-account-link">{auth.user}</a>
-                                    </div>
-                                </div>
-                            )}
-
+                        <DropdownMenu />
 
                             <ul className="main-nav-container">
                                 <li className="nav-item">
