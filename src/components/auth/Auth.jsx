@@ -15,11 +15,11 @@ export const getFingerprint = () => {
 }
 
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(localStorage.getItem('user'));
 
     const login = (user) => {
         setUser(user);
-        sessionStorage.setItem('user', user);
+        localStorage.setItem('user', user);
     }
 
     const logout = () => {

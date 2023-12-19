@@ -19,21 +19,28 @@ const Register = () => {
             setPasswordInCorrect(1);
         }
 
-        var body = {
+        const reqBody = {
             'username': username,
             'password': password,
             'email': email
         }
 
-        axios.get('http://127.0.0.1:8003/auth/register/', body)
-            .then(function(response) {
-                console.log(response);
-            })
-            .then(function (error) {
-                console.log(error);
-            })
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            data: JSON.stringify(reqBody)
+        };
+
+        console.log('sending request...');
+        axios.post('/auth/register/', JSON.stringify(reqBody))
+        .then(response => {
+            console.log(response.json());
+        })
+        .then(e => {
+            console.log(e);
+        });
         auth.login(user);
-        navigate('/');
+        navigate('/login');
     }
 
     return (
@@ -47,10 +54,10 @@ const Register = () => {
             <div className="register-form">
                 <h1>Регистрация</h1>
                 <form>
-                    <input type="text" placeholder="Никнейм" className="nickNameInput"></input>
-                    <input type="text" placeholder="Email" className="emailInput"></input>
-                    <input type="password" placeholder="Пароль" className="passwordInput"></input>
-                    <input type="password" placeholder="Пароль еще раз" className="passwordInput"></input>
+                    <input type="text" placeholder="Никнейм" className="nickNameInput" onChange={(e) => setUsername(e.target.value)}></input>
+                    <input type="text" placeholder="Email" className="emailInput" onChange={(e) => setEmail(e.target.value)}></input>
+                    <input type="password" placeholder="Пароль" className="passwordInput" onChange={(e) => setPassword(e.target.value)}></input>
+                    <input type="password" placeholder="Пароль еще раз" className="passwordInput" onChange={(e) => setPasswordAgain(e.target.value)}></input>
                     <button onClick={handleRegister}>Зарегистрироваться</button>
                 </form>
                 <a href="/login">Есть аккаунт? Войдите!</a>

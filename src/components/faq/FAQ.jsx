@@ -15,14 +15,25 @@ const FAQ = () => {
                             </a>
                         </div>
                         <div className="nav-container">
-                            <div className="top-nav-container">
-                                <div className="personal-account">
-                                    <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
-                                    <a href="/login" className="personal-account-link">Личный кабинет</a>
-                                    <img src={require('../../img/add_account.png')} className="add-personal-account-img" alt=""></img>
-                                    <a href="/register" className="add-personal-account-link">Зарегистрироваться</a>
+                            {
+                            !auth.user ? (
+                                <div className="top-nav-container">
+                                    <div className="personal-account">
+                                        <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
+                                        <a href="/login" className="personal-account-link">Личный кабинет</a>
+                                        <img src={require('../../img/add_account.png')} className="add-personal-account-img" alt=""></img>
+                                        <a href="/register" className="add-personal-account-link">Зарегистрироваться</a>
+                                    </div>
                                 </div>
-                            </div>
+                            ) : (
+                                <div className="account-name">
+                                    <div className="account-info">
+                                        <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
+                                        <a href="/login" className="personal-account-link">{auth.user}</a>
+                                    </div>
+                                </div>
+                            )}
+
 
                             <ul className="main-nav-container">
                                 <li className="nav-item">

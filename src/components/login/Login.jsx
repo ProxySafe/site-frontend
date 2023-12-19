@@ -13,7 +13,7 @@ export const Login = () => {
     const handleLogin = () => {
         console.log('nickname: ' + user + ' password: ' + password);
         const fingerprint = getFingerprint();
-        var body = {
+        var reqBody = {
             'username': user,
             'password': password,
             'os': fingerprint.OS,
@@ -21,9 +21,13 @@ export const Login = () => {
             'user_agent': fingerprint.UserAgent
         }
 
-        axios.get('http://127.0.0.1:8003/auth/login/', body)
+        axios.post('/auth/login/', JSON.stringify(reqBody))
             .then(function(response) {
-                console.log(response);
+                const jsonData = response.data;
+                if (jsonData.statusCode == 200) {
+                    localStorage.setItem('accessToken', jsonData.access_token);
+                    localStorage.setItem('refreshToken', jsonData.refresh_token);
+                }
             })
             .then(function (error) {
                 console.log(error);
