@@ -2,14 +2,10 @@ import "./Tarifs.scss";
 import { useState, useRef } from "react";
 import { useClickOutside } from "../click/useClickOutside";
 import {useAuth} from "../auth/Auth";
-import {
-    BsFillGearFill,
-    BsBoxArrowRight,
-    BsDeviceHdd,
-} from "react-icons/bs";
+import DropdownMenu from "../dropdown_menu/DropdownMenu";
+import "../dropdown_menu/DropdownMenu.scss";
 
 const Tarifs = () => {
-    const [toggle, setToggle] = useState(1);
     const [isMenuOpen, setMenuOpen] = useState(false);
     const menuRef = useRef(null);
     useClickOutside(menuRef, () => {
@@ -31,75 +27,39 @@ const Tarifs = () => {
                             </a>
                         </div>
                         <div className="nav-container">
-                        {
-                            !auth.user ? (
-                                <div className="top-nav-container">
-                                    <div className="personal-account">
-                                        <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
-                                        <a href="/login" className="personal-account-link">Личный кабинет</a>
-                                        <img src={require('../../img/add_account.png')} className="add-personal-account-img" alt=""></img>
-                                        <a href="/register" className="add-personal-account-link">Зарегистрироваться</a>
-                                    </div>
-                                </div>
-                            ) : (
-                                <div className="menu">
-                                    <div className="name-with-icon">
-                                        <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
-                                        <a className="personal-account-link" onClick={()=> setMenuOpen(!isMenuOpen)} >{auth.user}</a>
-                                    </div>
-                                    <ul className={isMenuOpen ? "menu__list__active": "menu__list"}>
-                                        <li className="menu__item">
-                                            <div>
-                                                <BsDeviceHdd className="icon"/>
-                                                <a href="/my_proxies">Мои прокси</a>
-                                            </div>
-                                        </li>
-                                        <li className="menu__item">
-                                            <div>
-                                            <BsFillGearFill className="icon"/>
-                                            <a href="/profile_settings">Настройки профиля</a>
-                                            </div>
-                                        </li>
-                                        <li className="menu__item">
-                                            <div>
-                                            <BsBoxArrowRight className="icon"/>
-                                            <a href="/logout">Выйти</a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            )}
-
-                            <ul className="main-nav-container">
-                                <li className="nav-item">
-                                    <a href="/">
-                                    <span className="menu-icon">
-                                        Главная
-                                    </span>
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a href="/tarifs">
-                                    <span className="menu-icon">
-                                        Тарифы
-                                    </span>
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a href="/contacts">
-                                    <span className="menu-icon">
-                                        Контакты
-                                    </span>
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a href="/faq">
-                                    <span className="menu-icon">
-                                        FAQ
-                                    </span>
-                                    </a>
-                                </li>
-                            </ul>
+                        
+                        <DropdownMenu />
+                        
+                        <ul className="main-nav-container">
+                            <li className="nav-item">
+                                <a href="/">
+                                <span className="menu-icon">
+                                    Главная
+                                </span>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="/tarifs">
+                                <span className="menu-icon">
+                                    Тарифы
+                                </span>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="/contacts">
+                                <span className="menu-icon">
+                                    Контакты
+                                </span>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="/faq">
+                                <span className="menu-icon">
+                                    FAQ
+                                </span>
+                                </a>
+                            </li>
+                        </ul>
                         </div>
                     </div>
 

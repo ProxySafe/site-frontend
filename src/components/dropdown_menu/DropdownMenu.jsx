@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import React from "react";
-import { useAuth } from "../auth/Auth";
+import { Logout, useAuth } from "../auth/Auth";
 import {
     BsFillGearFill,
     BsBoxArrowRight,
@@ -49,7 +49,7 @@ export const DropdownMenu = () => {
                         <li className="menu__item">
                             <div>
                             <BsBoxArrowRight className="icon"/>
-                            <a href="/logout">Выйти</a>
+                            <a onClick={Logout}>Выйти</a>
                             </div>
                         </li>
                     </ul>

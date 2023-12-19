@@ -11,7 +11,6 @@ export const Login = () => {
     const navigate = useNavigate();
 
     const handleLogin = () => {
-        console.log('nickname: ' + user + ' password: ' + password);
         const fingerprint = getFingerprint();
         var reqBody = {
             'username': user,
@@ -24,7 +23,7 @@ export const Login = () => {
         axios.post('https://api.proxysafe.ru/auth/login/', JSON.stringify(reqBody))
             .then(function(response) {
                 const jsonData = response.data;
-                if (jsonData.statusCode == 200) {
+                if (jsonData.statusCode === 200) {
                     localStorage.setItem('accessToken', jsonData.access_token);
                     localStorage.setItem('refreshToken', jsonData.refresh_token);
                 }
