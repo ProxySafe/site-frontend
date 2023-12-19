@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./Home.scss";
 import React from "react";
 import { useAuth } from "../auth/Auth";
+import {
+    BsFillGearFill,
+    BsBoxArrowRight,
+    BsDeviceHdd,
+} from "react-icons/bs";
+import { useClickOutside } from "../click/useClickOutside";
 
 const Home = () => {
     const [toggle, setToggle] = useState(1);
+    const [isMenuOpen, setMenuOpen] = useState(false);
+    const menuRef = useRef(null);
+    useClickOutside(menuRef, () => {
+        if (isMenuOpen) setTimeout(() => setMenuOpen(false), 1);
+    });
 
     function updateToggle(id) {
         setToggle(id);
@@ -34,11 +45,31 @@ const Home = () => {
                                     </div>
                                 </div>
                             ) : (
-                                <div className="account-name">
-                                    <div className="account-info">
+                                <div className="menu">
+                                    <div className="name-with-icon">
                                         <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
-                                        <a href="/login" className="personal-account-link">{auth.user}</a>
+                                        <a className="personal-account-link" onClick={()=> setMenuOpen(!isMenuOpen)} >{auth.user}</a>
                                     </div>
+                                    <ul className={isMenuOpen ? "menu__list__active": "menu__list"}>
+                                        <li className="menu__item">
+                                            <div>
+                                                <BsDeviceHdd className="icon"/>
+                                                <a href="/my_proxies">Мои прокси</a>
+                                            </div>
+                                        </li>
+                                        <li className="menu__item">
+                                            <div>
+                                            <BsFillGearFill className="icon"/>
+                                            <a href="/profile_settings">Настройки профиля</a>
+                                            </div>
+                                        </li>
+                                        <li className="menu__item">
+                                            <div>
+                                            <BsBoxArrowRight className="icon"/>
+                                            <a href="/logout">Выйти</a>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             )}
 
