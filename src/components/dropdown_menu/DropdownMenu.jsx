@@ -1,13 +1,13 @@
 import { useState, useRef } from "react";
 import React from "react";
-import { Logout, useAuth } from "../auth/Auth";
+import { useAuth } from "../auth/Auth";
 import {
     BsFillGearFill,
     BsBoxArrowRight,
     BsDeviceHdd,
 } from "react-icons/bs";
 import { useClickOutside } from "../click/useClickOutside";
-
+import axios from 'axios';
 
 export const DropdownMenu = () => {
     const [isMenuOpen, setMenuOpen] = useState(false);
@@ -16,6 +16,28 @@ export const DropdownMenu = () => {
         if (isMenuOpen) setTimeout(() => setMenuOpen(false), 1);
     });
     const auth = useAuth();
+
+    const Logout = (e) => {
+        console.log('event ' + e);
+        e.preventDefault();
+        var reqBody = {
+            'access_token': localStorage.getItem('accessToken')
+        }
+    
+        axios.post('https://api.proxysafe.ru/auth/logout/', JSON.stringify(reqBody))
+            .then(function(response) {
+                const jsonData = response.data;
+                if (jsonData.statusCode === 200) {
+                    localStorage.removeItem('accessToken');
+                    localStorage.removeItem('refreshToken');
+                }
+            })
+            .then(function (error) {
+                console.log(error);
+            })
+        auth.logout();
+    }
+    
 
     return (    
             !auth.user ? (
@@ -49,7 +71,7 @@ export const DropdownMenu = () => {
                         <li className="menu__item">
                             <div>
                             <BsBoxArrowRight className="icon"/>
-                            <a onClick={Logout}>Выйти</a>
+                            <a href="/" onClick={Logout}>Выйти</a>
                             </div>
                         </li>
                     </ul>
