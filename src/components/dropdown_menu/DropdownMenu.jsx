@@ -34,6 +34,7 @@ export const DropdownMenu = () => {
                 if (jsonData.statusCode === 200) {
                     localStorage.removeItem('accessToken');
                     localStorage.removeItem('refreshToken');
+                    localStorage.removeItem('user');
                 }
             })
             .then(function (error) {
