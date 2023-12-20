@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import React from "react";
-import { useAuth } from "../auth/Auth";
+import { getFingerprint, useAuth } from "../auth/Auth";
 import {
     BsFillGearFill,
     BsBoxArrowRight,
@@ -20,8 +20,12 @@ export const DropdownMenu = () => {
     const Logout = (e) => {
         console.log('event ' + e);
         e.preventDefault();
+        const fingerprint = getFingerprint();
         var reqBody = {
-            'access_token': localStorage.getItem('accessToken')
+            'access_token': localStorage.getItem('accessToken'),
+            'os': fingerprint.OS,
+            'fingerprint': fingerprint.Fingerprint,
+            'user_agent': fingerprint.UserAgent
         }
     
         axios.post('https://api.proxysafe.ru/auth/logout/', JSON.stringify(reqBody))
