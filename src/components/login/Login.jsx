@@ -21,17 +21,14 @@ export const Login = () => {
         }
 
         axios.post('https://api.proxysafe.ru/auth/login/', JSON.stringify(reqBody))
-            .then(function(response) {
+            .then(response => {
                 const jsonData = response.data;
                 if (jsonData.statusCode === 200) {
                     localStorage.setItem('accessToken', jsonData.access_token);
                     localStorage.setItem('refreshToken', jsonData.refresh_token);
+                    auth.login(user);
                 }
-            })
-            .then(function (error) {
-                console.log(error);
-            })
-        auth.login(user);
+            });
         navigate('/');
     }
 
