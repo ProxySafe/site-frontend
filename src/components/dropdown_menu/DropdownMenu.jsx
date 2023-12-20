@@ -28,13 +28,14 @@ export const DropdownMenu = () => {
             'user_agent': fingerprint.UserAgent
         }
     
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+        localStorage.removeItem('user');
         axios.post('https://api.proxysafe.ru/auth/logout/', JSON.stringify(reqBody))
             .then(function(response) {
                 const jsonData = response.data;
                 if (jsonData.statusCode === 200) {
-                    localStorage.removeItem('accessToken');
-                    localStorage.removeItem('refreshToken');
-                    localStorage.removeItem('user');
+                    console.log('success!');
                 }
             })
             .then(function (error) {
