@@ -1,20 +1,12 @@
 import "./Tarifs.scss";
 import { useState, useRef } from "react";
-import { useClickOutside } from "../click/useClickOutside";
 import {useAuth} from "../auth/Auth";
 import DropdownMenu from "../dropdown_menu/DropdownMenu";
 import "../dropdown_menu/DropdownMenu.scss";
 
 const Tarifs = () => {
     const [isMenuOpen, setMenuOpen] = useState(false);
-    const menuRef = useRef(null);
-    useClickOutside(menuRef, () => {
-        if (isMenuOpen) setTimeout(() => setMenuOpen(false), 1);
-    });
-
-
     const auth = useAuth();
-    console.log('auth.user ' + auth.user);
 
     return (
         <div className="tarifs-home">

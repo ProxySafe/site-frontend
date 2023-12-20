@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import React from "react";
 import { getFingerprint, useAuth } from "../auth/Auth";
 import {
@@ -6,14 +6,26 @@ import {
     BsBoxArrowRight,
     BsDeviceHdd,
 } from "react-icons/bs";
-import { useClickOutside } from "../click/useClickOutside";
 import axios from 'axios';
 
 export const DropdownMenu = () => {
     const [isMenuOpen, setMenuOpen] = useState(false);
-    const menuRef = useRef(null);
-    useClickOutside(menuRef, () => {
-        if (isMenuOpen) setTimeout(() => setMenuOpen(false), 1);
+    let menuRef = useRef('');
+    const onRef = (node) => {
+        if (node) {
+            menuRef.current = node;
+        }
+    };
+    useEffect(() => {
+        let handler = (e)=>{
+            if (!menuRef.current.contains(e.target)) {
+                console.log('hahaha ' + menuRef.current + ' ' + e.target);
+                setMenuOpen(false);
+                console.log(menuRef.current);
+            }
+        };
+
+        document.addEventListener('mousedown', handler);
     });
     const auth = useAuth();
 
@@ -56,7 +68,7 @@ export const DropdownMenu = () => {
                     </div>
                 </div>
             ) : (
-                <div className="menu">
+                <div className="menu" ref={onRef}>
                     <div className="name-with-icon">
                         <img src={require('../../img/personal_account.png')} className="personal-account-img" alt=""></img>
                         <a className="personal-account-link" onClick={()=> setMenuOpen(!isMenuOpen)} >{auth.user}</a>

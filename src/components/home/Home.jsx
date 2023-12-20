@@ -2,17 +2,12 @@ import { useState, useRef } from "react";
 import "./Home.scss";
 import React from "react";
 import { useAuth } from "../auth/Auth";
-import { useClickOutside } from "../click/useClickOutside";
 import DropdownMenu from "../dropdown_menu/DropdownMenu";
 import "../dropdown_menu/DropdownMenu.scss";
 
 const Home = () => {
     const [toggle, setToggle] = useState(1);
     const [isMenuOpen, setMenuOpen] = useState(false);
-    const menuRef = useRef(null);
-    useClickOutside(menuRef, () => {
-        if (isMenuOpen) setTimeout(() => setMenuOpen(false), 1);
-    });
 
     function updateToggle(id) {
         setToggle(id);
